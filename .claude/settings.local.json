@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(head)",
+      "PowerShell($env:CMAKE_GENERATOR; $env:CMAKE_GENERATOR_PLATFORM; [System.Environment]::GetEnvironmentVariable\\(\"CMAKE_GENERATOR\", \"User\"\\); [System.Environment]::GetEnvironmentVariable\\(\"CMAKE_GENERATOR\", \"Machine\"\\))",
+      "PowerShell(flutter config --list)",
+      "Bash(xargs grep *)",
+      "PowerShell($flutterPath = \\(Get-Command flutter\\).Source; Split-Path $flutterPath)",
+      "PowerShell(& \"${env:ProgramFiles\\(x86\\)}\\\\Microsoft Visual Studio\\\\Installer\\\\vswhere.exe\" -format json 2>$null | ConvertFrom-Json | Select-Object displayName, installationVersion, installationPath)",
+      "PowerShell($vswhere = \"${env:ProgramFiles\\(x86\\)}\\\\Microsoft Visual Studio\\\\Installer\\\\vswhere.exe\"; if \\(Test-Path $vswhere\\) { & $vswhere -all -format json } else { \"vswhere not found at $vswhere\" })",
+      "PowerShell(cmake --version)",
+      "PowerShell(cmake --help 2>&1)",
+      "PowerShell($cmakePath = Get-ChildItem \"C:\\\\Program Files\\\\Microsoft Visual Studio\" -Recurse -Filter \"cmake.exe\" -ErrorAction SilentlyContinue | Select-Object -First 1 -ExpandProperty FullName; if \\($cmakePath\\) { & $cmakePath --version } else { \"Not found in VS\" })",
+      "PowerShell($cmakePath = Get-ChildItem \"C:\\\\Program Files\\\\Microsoft Visual Studio\" -Recurse -Filter \"cmake.exe\" -ErrorAction SilentlyContinue | Select-Object -First 1 -ExpandProperty FullName; & $cmakePath --help 2>&1 | Select-String -Pattern \"Visual Studio\")"
+    ]
+  }
+}
