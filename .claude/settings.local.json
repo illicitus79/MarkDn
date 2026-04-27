@@ -11,7 +11,9 @@
       "PowerShell(cmake --version)",
       "PowerShell(cmake --help 2>&1)",
       "PowerShell($cmakePath = Get-ChildItem \"C:\\\\Program Files\\\\Microsoft Visual Studio\" -Recurse -Filter \"cmake.exe\" -ErrorAction SilentlyContinue | Select-Object -First 1 -ExpandProperty FullName; if \\($cmakePath\\) { & $cmakePath --version } else { \"Not found in VS\" })",
-      "PowerShell($cmakePath = Get-ChildItem \"C:\\\\Program Files\\\\Microsoft Visual Studio\" -Recurse -Filter \"cmake.exe\" -ErrorAction SilentlyContinue | Select-Object -First 1 -ExpandProperty FullName; & $cmakePath --help 2>&1 | Select-String -Pattern \"Visual Studio\")"
+      "PowerShell($cmakePath = Get-ChildItem \"C:\\\\Program Files\\\\Microsoft Visual Studio\" -Recurse -Filter \"cmake.exe\" -ErrorAction SilentlyContinue | Select-Object -First 1 -ExpandProperty FullName; & $cmakePath --help 2>&1 | Select-String -Pattern \"Visual Studio\")",
+      "PowerShell(Get-ChildItem \"C:\\\\i79\\\\Dev\\\\MarkD\\\\markd\\\\build\\\\windows\" -Recurse -Force -ErrorAction SilentlyContinue | Where-Object { !$_.PSIsContainer } | Select-Object FullName)",
+      "PowerShell(Get-Command flutter)"
     ]
   }
 }
